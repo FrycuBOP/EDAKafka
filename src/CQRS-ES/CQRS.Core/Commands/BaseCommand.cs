@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CQRS.Core.Commands
 {
-    public class BaseCommand : Message
+    public abstract class BaseCommand : Message
     {
     }
 }
