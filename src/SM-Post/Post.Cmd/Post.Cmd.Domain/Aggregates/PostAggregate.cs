@@ -1,12 +1,5 @@
 ﻿using CQRS.Core.Domain;
-using CQRS.Core.Messages;
 using Post.Common.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Post.Cmd.Domain.Aggregates
 {
@@ -132,7 +125,7 @@ namespace Post.Cmd.Domain.Aggregates
             _comments[@event.CommentId] = new(@event.Comment, @event.UserName);
         }
 
-        public void RemoveComment(Guid commentId, string userName) 
+        public void RemoveComment(Guid commentId, string userName)
         {
             if (!_active)
             {
@@ -158,7 +151,7 @@ namespace Post.Cmd.Domain.Aggregates
             {
                 throw new InvalidOperationException("The post has already been removed");
             }
-            if(!_author!.Equals(userName, StringComparison.CurrentCultureIgnoreCase))
+            if (!_author!.Equals(userName, StringComparison.CurrentCultureIgnoreCase))
             {
                 throw new InvalidOperationException($"You are not allowed to delete post that was made by another user.");
             }
