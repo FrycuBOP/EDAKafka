@@ -25,7 +25,7 @@ namespace Post.Cmd.Infrastructure.Producers
             var eventMessage = new Message<string, string>
             {
                 Key = Guid.NewGuid().ToString(),
-                Value = JsonSerializer.Serialize(@event, @event.GetType().GetType())
+                Value = JsonSerializer.Serialize(@event, @event.GetType())
             };
 
             var deliveryResult = await producer.ProduceAsync(topic, eventMessage);
