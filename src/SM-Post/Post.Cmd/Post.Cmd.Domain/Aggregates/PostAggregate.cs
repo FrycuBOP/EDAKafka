@@ -9,7 +9,7 @@ namespace Post.Cmd.Domain.Aggregates
         private string? _author;
         private readonly Dictionary<Guid, (string, string)> _comments = [];
 
-        private bool Active { get { return _active; } set { _active = value; } }
+        public bool Active { get { return _active; } set { _active = value; } }
 
         public PostAggregate() { }
 
